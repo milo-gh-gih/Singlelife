@@ -2,22 +2,39 @@
 <html lang="en">
 <head>
     <title>今日份孤單鴕鳥</title>
+    <meta charset="UTF-8">
+    <script>
+        function checkPassword(event) {
+            event.preventDefault(); // 阻止表單自動提交
+
+            const passwordInput = document.getElementById("password").value;
+            const correctPassword = "12345"; // 設定的密碼
+
+            if (passwordInput === correctPassword) {
+                window.location.href = "./html_練習/single2.html"; // 密碼正確就跳轉
+            } else {
+                alert("密碼錯誤，請再試一次！");
+            }
+        }
+    </script>
 </head>
 <body>
-    
+
     <a href="./html_練習/single1.html">
-        <img src="./html_練習/單身圖.jpg >
         <br>
         可點選圖片更進一步窺探鴕鳥心情
     </a>
-    <br><br>
-    <form action="./html_練習/single2.html">
-        <label for="username">孤單的秘密</label>
-        <br>
-        <input type="text" id="username">
-        <br>
-        <input type="submit" value="提交">
-    </form>
     
+    <br><br>
+
+    <!-- 密碼登入表單 -->
+    <form onsubmit="checkPassword(event)">
+        <label for="password">輸入鴕鳥的孤單密碼：</label>
+        <br>
+        <input type="password" id="password" required>
+        <br>
+        <input type="submit" value="登入">
+    </form>
+
 </body>
 </html>
